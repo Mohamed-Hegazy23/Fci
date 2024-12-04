@@ -1,0 +1,18 @@
+*{
+    margin: 0%;
+    padding: 0;
+}
+/* .container{
+    margin: 100px;
+} */
+
+form{
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 450px;
+    padding-bottom: 450px;
+}
+form input{
+    padding: 5px;
+    border-radius: 7px;
+}

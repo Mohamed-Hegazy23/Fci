@@ -1,0 +1,80 @@
+body {
+    background: linear-gradient(135deg, #3498db, #62bee2);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    margin: 0; /* Remove default margin */
+    min-height: 100vh; /* Ensure full height */
+}
+
+.bg-transparent {
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust alpha value here */
+}
+
+.transparent-card {
+    background: rgba(255, 255, 255, 0.4); /* Adjust alpha value here */
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container {
+    padding: 40px;
+}
+
+h1 {
+    color: #fff;
+}
+
+.contact-icons {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust alpha value here */
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info li {
+    list-style: none;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    width: auto;
+    padding: 15px 25px;
+    font-size: 18px;
+    background: radial-gradient(100% 100% at 100% 0%, #89E5FF 0%, rgb(182, 191, 246) 100%);
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.custom-btn:hover {
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    transform: scale(1.02);
+}
