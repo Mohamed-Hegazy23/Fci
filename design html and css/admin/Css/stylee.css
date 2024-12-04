@@ -1,0 +1,120 @@
+.main{
+    justify-content:center;
+    width: 40%;
+    box-shadow: 1px 1px 10px silver;
+    margin-top: 25px;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    
+}
+h2{
+    font-family: 'Cairo', sans-serif;
+}
+input{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    padding: 5px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+button{
+    margin-left: 20px;
+    border-radius: 10px;
+    border:none;
+    padding:10px;
+    width: 25%;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #1fda73;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    margin-bottom: 15px;
+}
+
+button:hover{
+    background-color: rgb(72, 211, 93);
+}
+
+label{
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #1F87CF;
+    font-family: 'Cairo', sans-serif;
+    color:white;
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color:tomato;
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+}
+
+aside{
+    /* margin-left: 500p;
+    padding-right: 250px;
+    margin-right: 900px; */
+    margin-bottom: 50px;
+    margin-top: 100px;
+    margin-left : 550px;
+    width: 400px;
+    height: 500px;
+ }
+ aside .user-profile{   
+    padding:20px;
+    text-align: center;
+    border-style: solid ;
+    background-color: rgb(255, 255, 255);
+    box-shadow: black;
+    border-radius: 20px;
+    margin:20px auto;
+    max-width: 500px;
+ }
+ 
+ aside .user-profile p{
+    margin-bottom: 10px;
+    font-size: 25px;
+    color:var(--black);
+ }
+ 
+ aside .user-profile p span{
+    color:rgb(7, 135, 247);
+ }
+ 
+ aside .user-profile .flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:10px;
+    align-items: flex-end;
+ }
+
+ .btn,
+.delete-btn
+{
+   display: inline-block;
+   padding:10px 30px;
+   cursor: pointer;
+   font-size: 18px;
+   color:var(--white);
+   border-radius: 5px;
+   text-transform: capitalize;
+   border-radius: 20px;
+}
+
+.btn:hover,
+.delete-btn:hover{
+   background-color:rgb(37, 147, 198);
+}
+
+
+.delete-btn{
+   background-color:rgb(115, 205, 223);
+}
+
