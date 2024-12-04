@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@200&family=Poppins:wght@100;200;300&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop online</title>
+    <link rel="stylesheet" href="./Css/stylee.css">
+    <style>
+        body {
+            background-image: url("./image/back 0.jpg "); /* Replace with your image path */
+            background-size: cover; /* Or adjust size and position as needed */
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+</head>
+<header >
+   <a href="All_clint.html"><button style="margin-left:35% ;width:200px">All Cliant</button></a>
+   <a href="Message.html"><button style="margin-right:30% ;width:200px;">Message</button></a>
+</header>
+<body>
+    <center>
+        <div class="main">
+            <form action="" method="post"onsubmit="return validateForm()">
+                <h2>ADD PRODUCTS TO SHOP</h2>
+                <img src="./image/logo 0.jpg" alt="logo" width="450px">
+                <input type="text" name='name' placeholder="product name" required  autofocus>
+                <br>
+                <input type="text" name='price' placeholder="product price" required >
+                <br>
+                <input type="text" name='description' placeholder="description" required >
+                <br>
+                <input type="file" id="file" name='image' style='display:none;' required >
+                <label for="file"> Add photo</label>
+                <button name='ADD' type="submit">ADD ✅</button>
+                <br><br>
+               
+            </form> <a href="products.html" ><button>All products</button></a>
+        </div>
+     
+    </center>
+
+    <script>
+        function validateForm() {
+          
+            var name = document.getElementsByTagName("name").value;
+            var price = document.getElementsByTagName("price").value;
+            var description = document.getElementsByTagName("description").value;
+
+            if (name === "" || price === "" ||description==="" ) {
+                alert("Please fill in all fields before submitting!");
+                return false; 
+            }
+            alert("Product added! 🎉");
+            return true; 
+        }
+        </script>
+
+</body>
+</html>
