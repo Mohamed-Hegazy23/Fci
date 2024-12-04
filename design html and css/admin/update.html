@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@200&family=Poppins:wght@100;200;300&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update | تعديل منتج</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+          margin: 0; /* Remove default margins */
+          height: 100vh; /* Set height to 100% of viewport height */
+          background-image: url("background 8.jpg"); /* Replace with your image path */
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+      </style>
+</head>
+<body >
+    <center>
+        <div class="main">
+            <form action="up.php" method="post" enctype="multipart/form-data">
+                <h2>Update Products</h2> 
+                <div style="font-size: larger;">
+                Enter Prodect ID<input type="text"  name='id' value=''>
+            </div>
+                <div  style="font-size: larger;">
+                New Prodect Name <input type="text" name='name' value=''>
+            </div>
+            <div  style="font-size: larger;">
+                New Prodect Price<input type="text" name='price' value=''>
+            </div>
+            <div  style="font-size: larger;">
+                <input type="file" id="file" name='image' style='display:none;'>
+                <label for="file"  style="font-size: larger;"> update image</label>
+                <button name='update' type='submit'>update </button>
+            </div>
+                <br><br>
+                <a href="products" style="font-size: larger;"> All products </a>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

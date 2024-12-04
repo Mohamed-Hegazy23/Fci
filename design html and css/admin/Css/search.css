@@ -1,0 +1,33 @@
+
+
+form{
+    padding-left: 500px;
+    padding-top: 102px;
+    /* margin-left: 500px; */
+}
+form input{
+    padding: 5px;
+}
+button{
+    margin-left: 20px;
+    border-radius: 50px;
+    border:none;
+    padding:10px;
+    width: 15%;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #269e9e;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    margin-bottom: 15px;
+
+}
+
+button:hover{
+    background-color: rgb(7, 162, 201);
+}
+
+form input {
+    border-radius: 50px;
+  
+}
