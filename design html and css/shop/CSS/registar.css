@@ -1,0 +1,63 @@
+
+body {
+    background-color: #f8f9fa;
+    background-image: url("/assest/images/WhatsApp\ Image\ 2024-12-04\ at\ 8.46.00\ PM\ \(2\).jpeg");
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+ }
+ 
+ .form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+ }
+
+ .form-container h3 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+ }
+
+ .form-container .box {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+ }
+
+ .form-container .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+ }
+
+ .form-container .btn:hover {
+    background-color: #0056b3;
+ }
+
+ .form-container p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+ }
+
+ .form-container p a {
+    color: #007bff;
+    text-decoration: none;
+ }
+
+ .form-container p a:hover {
+    text-decoration: underline;
+ }
