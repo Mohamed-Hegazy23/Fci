@@ -1,0 +1,105 @@
+
+body {
+    
+    font-family: 'IBM Plex Sans', sans-serif;
+    
+    background-image: url(../images/a.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #f7f1f1;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #434a51; /* Navy Blue */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center; /* Centrally align navbar items */
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 60px;
+    width: 60px;
+    margin-right: 500px; /* Add space between logo and links */
+}
+
+.navbar .contain {
+    display: flex;
+    justify-content: center; /* Ensure items are centered */
+    width: 60%; /* Control width for spacing */
+}
+
+.navbar .contain a {
+    color: rgb(255, 255, 255);
+    margin-right: 100px; /* Increased spacing between links */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar .contain a:hover {
+    color: #ffc107; /* Hover effect with yellow */
+}
+
+/* Cart Table */
+.cart-table {
+    margin: 50px auto;
+    background-color: rgb(73, 70, 67);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+}
+
+.cart-table h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #ccc6c6;
+    margin-bottom: 20px;
+}
+
+.cart-table .table {
+    margin-top: 20px;
+}
+
+.cart-table .table th, .cart-table .table td {
+    text-align: center;
+    padding: 10px;
+}
+
+.cart-table .table th {
+    background-color: #1e2022; /* Navy Blue */
+    color: white;
+}
+
+.cart-table .table td {
+    background-color: #f9f9f9;
+}
+
+.cart-table .btn {
+    background-color: #202224; /* Navy Blue */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-table .btn:hover {
+    background-color: #222528; /* Darker Navy Blue on hover */
+}
+
+.footer {
+    text-align: center;
+    background-color: rgb(25, 22, 36); /* Light gray */
+    color: white;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 5px 0;
+}
