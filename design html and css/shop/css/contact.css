@@ -1,0 +1,135 @@
+/* Body and General Styling */
+body {
+    background-image: url("../images/u.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #1c2125 !important; /* Ensures priority */
+    margin-bottom: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff !important; /* Ensures priority */
+    font-size: 18px;
+}
+
+.navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #dcdcdc !important;
+    text-shadow: 0px 0px 5px rgba(220, 220, 220, 0.8);
+}
+
+.navbar-toggler-icon {
+    background-color: #fff !important;
+}
+
+/* Form Styling */
+.contact-form {
+    position: relative;
+    z-index: 2; /* Ensures visibility above background */
+    padding: 20px;
+    border: none; /* Removed border for a cleaner look */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+}
+
+.contact-form button {
+    width: auto;
+    padding: 15px 25px;
+    font-size: 18px;
+    background: radial-gradient(100% 100% at 100% 0%, #89E5FF 0%, rgb(182, 191, 246) 100%);
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0.05em 0.05em rgb(45 35 66 / 50%), 0px 0.5em 1em -0.02em rgb(45 35 66 / 40%);
+}
+
+/* Headings */
+h1 {
+    color: #5484ea;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Social Contact Section */
+.social-contact {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.social-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-contact li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.social-contact i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.social-contact a {
+    color: #635a99;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-contact a:hover {
+    color: #00c3ff;
+}
+
+/* Specific Icon Colors */
+.social-contact .facebook-link i {
+    color: #3b5998; /* Facebook color */
+}
+
+.social-contact .whatsapp-link i {
+    color: #25d366; /* WhatsApp color */
+}
+
+.social-contact .gmail-link i {
+    color: #ea4335; /* Gmail color */
+}
