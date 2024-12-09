@@ -13,23 +13,41 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <!-- Custom CSS -->
+
     <link rel="stylesheet" href="./CSS/cart.css" />
+    <link rel="stylesheet" href="./assest/css/cart.css" />
 </head>
 <body>
 
 <!-- Navbar -->
-<div class="navbar">
-   <div class="logo">
-       <img src="./images/logo.png" alt="Logo">
-   </div>
-   <div class="contain">
-       <a href="index.html">Home</a>
-       <a href="shop.html">Shop</a>
-       <a href="blog1.html">Blog</a>
-       <a href="contact.html">Contact</a>
-   </div>
-</div>
+     <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container main-nav" style="padding-bottom: 0px;">
+        <img src="./images/logo.png" alt="Logo" height="80px" width="80px">
 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html"><i class="fa fa-laptop"></i> Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog1.html"><i class="fa fa-rss"></i> Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+       
+
+
+            <li class="nav-item"><a class="nav-link" href="user_profile.html"><i class="fas fa-user"
+                  title="Profile"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-bag"
+                  title="Cart"></i></a></li>
+
+        </div>
+      </div>
+    </nav>
+  </header>
 <!-- Cart Section -->
 <section class="my-5 py-5">
     <div class="container text-center my-3 pt-5"> 
@@ -62,16 +80,16 @@
         </table>
         <div class="text-right mt-4">
             <h4>Total: $500.00</h4>
-            <button class="btn">Proceed to Checkout</button>
+          <a href="checkout.html">  <button class="btn">Proceed to Checkout</button></a> 
         </div>
     </div>
 </section>
 
 <!-- Footer -->
 <div class="footer">
-    <p>&copy; 2024 Shop Name. All rights reserved.</p>
-    <p>Address: 123 Main Street, Cityville, Country</p>
-    <p>Email: info@yourshop.com | Phone: +1 (123) 456-7890</p>
+    <p>&copy; 2024 El-Basha Store. All rights reserved.</p>
+    <p>Address: Shiben El Kome , El Glaa Street</p>
+    <p>Email: El-Basha.Store@gmail.com | Phone: +201097534045</p>
 </div>
 
 <!-- Bootstrap JS -->

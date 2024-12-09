@@ -1,28 +1,29 @@
 
 body {
-    background-color: #f8f9fa;
-    background-image: url("/assest/images/WhatsApp\ Image\ 2024-12-04\ at\ 8.46.00\ PM\ \(2\).jpeg");
-    font-family: 'Arial', sans-serif;
+   background-image: url("../images/for.jpeg");
+   background-repeat: no-repeat;
+   background-size: cover;
+    
     display: flex;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    align-items: center;
+    height: 100vh;
     margin: 0;
+    font-family: 'Arial', sans-serif;
  }
- 
+
  .form-container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 100%;
     max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
  }
 
  .form-container h3 {
     text-align: center;
-    color: #007bff;
     margin-bottom: 20px;
+    color: #333;
  }
 
  .form-container .box {
@@ -31,33 +32,35 @@ body {
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background: #f1f1f1;
  }
 
  .form-container .btn {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background: #3d2508;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
  }
 
  .form-container .btn:hover {
-    background-color: #0056b3;
+    background: #495057;
  }
 
  .form-container p {
     text-align: center;
     margin-top: 15px;
-    font-size: 14px;
+    color: #666;
  }
 
- .form-container p a {
-    color: #007bff;
+ .form-container a {
+    color: #495057;
     text-decoration: none;
  }
 
- .form-container p a:hover {
+ .form-container a:hover {
     text-decoration: underline;
  }

@@ -1,7 +1,7 @@
 
 body {
-    background: url("on.jpg") no-repeat center center fixed; 
-    background-image: url("/assest/images/WhatsApp\ Image\ 2024-12-04\ at\ 8.46.00\ PM\ \(2\).jpeg");
+    
+    background-image: url("../images/BG.jpg");
        background-size: cover; 
        margin: 0;
        padding: 0;

@@ -1,10 +1,10 @@
 body {
    margin: 0;
    font-family: 'Arial', sans-serif;
+   background-image: url("./assest/images/WhatsApp\ Image\ 2024-12-04\ at\ 8.46.00\ PM\ \(2\).jpeg");
 }
 
 .navbar {
-   /* margin-left: 100px; */
    background-color:#ffffff;
    overflow: hidden;
    
@@ -20,30 +20,9 @@ body {
    margin-left: 30px;
 
 }
-/*footer*/
-body {
-   margin: 0;
-   font-family: 'Arial', sans-serif;
-}
-
-.footer {
-   background-color: #333;
-   color: white;
-   padding: 20px;
-   text-align: center;
-}
-
-.footer a {
-   color: #4CAF50;
-   text-decoration: none;
-}
-
-.footer a:hover {
-   text-decoration: underline;
-}
 /*contain*/
 .contain{
-   margin-right: 40%;
+   margin-left: 35%;
 }
 .navbar a:hover {
    font-weight: 1000;
@@ -81,6 +60,27 @@ body {
    .navbar .dropdown-content {
        position: relative;
    }
+}
+/*footer*/
+body {
+   margin: 0;
+   font-family: 'Arial', sans-serif;
+}
+
+.footer {
+   background-color: #333;
+   color: white;
+   padding: 20px;
+   text-align: center;
+}
+
+.footer a {
+   color: #4CAF50;
+   text-decoration: none;
+}
+
+.footer a:hover {
+   text-decoration: underline;
 }
   /*                comment              */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
