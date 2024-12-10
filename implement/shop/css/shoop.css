@@ -1,0 +1,147 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'IBM Plex Sans', sans-serif;
+ }
+
+ body {
+   background-image: url(../images/you.jpg);
+   padding-top: 80px;
+ }
+
+.navbar {
+   font-size: 18px;
+   padding: 1rem 0;
+   background-color: #ffffff;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   z-index: 1000;
+   padding-top: 0px;
+}
+
+.navbar img {
+   height: 60px;
+   width: 60px;
+}
+
+.navbar-toggler {
+   border: none;
+}
+
+.navbar-nav {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.nav-link {
+   color: #000;
+   text-decoration: none;
+   transition: color 0.3s ease;
+}
+
+.nav-link i {
+   margin-right: 5px;
+   color: #000;
+   transition: color 0.3s ease;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+   color: rgb(243, 11, 11);
+   border-bottom: 2px solid rgb(65, 69, 77);
+}
+
+.navbar .btn {
+   font-size: 16px;
+   padding: 5px 15px;
+   border-radius: 5px;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .btn:hover {
+   background-color: rgb(209, 20, 17);
+   color: #fff;
+}
+
+.heading {
+   text-align: center;
+   font-size: 36px;
+   text-transform: uppercase;
+   margin-bottom: 30px;
+ }
+
+ .container {
+   padding-bottom: 190px; /* Ensures last row is not hidden by footer */
+ }
+
+ .card {
+  width: 260px;            /* Fixed width */
+  height: 360px;           /* Fixed height */
+  border-radius: 10px;
+  position: relative;      /* To position price and image correctly */
+  overflow: hidden;        /* Prevent overflow */
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;  /* Stack content vertically */
+}
+
+.card img {
+  width: 70%;             /* Full width */
+  height: 150px;           /* Fixed height for the image */
+  object-fit: cover;       /* Ensure the image covers the area without distortion */
+}
+
+.card .price {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #3c5c7f;
+  color: white;
+  font-size: 18px;
+  z-index: 0;              /* Keep above other content */
+}
+
+.card .description {
+  font-size: 18px;
+  color: #555;
+  height: 60px;            /* Fixed height for description */
+  overflow: hidden;        /* Hide overflow text */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  margin: 0 15px;
+}
+
+.card button {
+  width: 90%;              /* Slightly smaller button */
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  background-color: #3c5c7f;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #335278;
+}
+
+ footer {
+   background-color: #2c3e50;
+   color: white;
+   text-align: center;
+   padding: 10px;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+ }
+
+ footer a {
+   color: white;
+   text-decoration: none;
+ }
+

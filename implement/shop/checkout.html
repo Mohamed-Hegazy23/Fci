@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assest/imgs/logo.png" type="image/x-icon">
+    <!-- Custom CSS -->
+<<<<<<< HEAD
+    <link rel="stylesheet" href="./CSS/checkout.css" >
+=======
+    <link rel="stylesheet" href="./assest/css/checkout.css" >
+>>>>>>> ec62d885e6da26b79e3110db8ebb6b5fab7ff792
+
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+   <div class="logo">
+      <img src="./images/logo.png" alt="Logo" height="80" width="80">
+   </div>
+   <div class="contain">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog1.html">Blog</a>
+      <a href="contact.html">Contact</a>
+   </div>
+</div>
+
+<!-- Checkout Section -->
+<section class="my-5 py-5">
+    <div class="container text-center my-3 pt-5"> 
+        <h2 class="form-weight-bold"><B>Check Out</B></h2>
+        <hr class="mx-auto" style="width: 50px; height: 3px; background-color: #005F73;">
+    </div>
+    
+    <div class="checkout-form-container">
+        <form id="checkout-form" method="post" action="">
+            <!-- Name -->
+            <div class="form-group checkout-small-element">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group checkout-small-element">
+                <label for="phone">Phone</label>
+                <input type="email" class="form-control" name="phone" placeholder="Phone" required maxlength="11">
+            </div>
+
+            <!-- Address -->
+            <div class="form-group checkout-large-element">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" placeholder="Address" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group checkout-large-element">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
+            </div>
+
+            <!-- Via-card -->
+            <div class="form-group checkout-large-element">
+                <label for="via">Visa Card</label>
+                <input type="password" class="form-control" name="viacard" placeholder="Visa Card" required>
+            </div>
+
+            <!-- Confirm Visa-card -->
+            <div class="form-group checkout-large-element">
+                <label for="cviacard">Confirm Visa Card</label>
+                <input type="password" class="form-control" name="cviacard" placeholder="Confirm Visa Card" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group checkout-btn-container">
+                <input type="submit" class="btn" value="Checkout" name="submit">
+            </div>
+        </form>
+    </div>
+
+    <!-- Back to Login -->
+    <div class="text-center mt-4">
+        <p><a href="login.html" class="back-to-login">Back to Login</a></p>
+    </div>
+    
+</section>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2024 Electronic Store. All rights reserved.</p>
+    <p>Address: ElGalaa Street,Shibin El kom , Menofia</p>
+    <p>Email: Elbasha@gmail.com | Phone: +201067568547</p>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
