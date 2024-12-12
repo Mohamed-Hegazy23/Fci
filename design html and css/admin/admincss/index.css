@@ -1,3 +1,5 @@
+
+
 .main{
     justify-content:center;
     width: 40%;
@@ -48,21 +50,16 @@ label{
     font-family: 'Cairo', sans-serif;
     color:white;
 }
-a{
+/* a{
     text-decoration: none;
     font-size: 20px;
     color:tomato;
     font-family: 'Cairo', sans-serif;
     font-weight: bold;
-}
+} */
 
 aside{
-    /* margin-left: 500p;
-    padding-right: 250px;
-    margin-right: 900px; */
     margin-bottom: 50px;
-    margin-top: 100px;
-    margin-left : 550px;
     width: 400px;
     height: 500px;
  }
@@ -95,26 +92,16 @@ aside{
     align-items: flex-end;
  }
 
- .btn,
-.delete-btn
-{
-   display: inline-block;
-   padding:10px 30px;
-   cursor: pointer;
-   font-size: 18px;
-   color:var(--white);
-   border-radius: 5px;
-   text-transform: capitalize;
-   border-radius: 20px;
+ 
+.btn{
+width: 100px;
+
 }
 
-.btn:hover,
-.delete-btn:hover{
-   background-color:rgb(37, 147, 198);
+.btn_div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+
 }
-
-
-.delete-btn{
-   background-color:rgb(115, 205, 223);
-}
-

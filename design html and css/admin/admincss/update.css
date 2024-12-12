@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-image: url("../image/back\ 0.jpg"); /* Update to match your image path */
+    background-image: url("../images/adminprod.jpg"); /* Update to match your image path */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -53,7 +53,7 @@ input[type="text"], input[type="file"] {
 .file-label {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: black;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -61,14 +61,15 @@ input[type="text"], input[type="file"] {
 }
 
 .file-label:hover {
-    background-color: #0056b3;
+    background-color: pink;
+    color:black;
 }
 
 /* Button styles */
 .update-btn {
     width: 100%;
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: black;
     color: white;
     font-size: 16px;
     border: none;
@@ -78,7 +79,9 @@ input[type="text"], input[type="file"] {
 }
 
 .update-btn:hover {
-    background-color: #218838;
+    background-color: pink;
+    color:black;
+
 }
 
 /* Back link */

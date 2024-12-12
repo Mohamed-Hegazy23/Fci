@@ -1,21 +1,26 @@
-/* General body styling */
+
 body {
-    background-image: url("../image/back\ 0.jpg"); /* Replace with your image path */
-    background-size: cover; /* Adjust size and position as needed */
+    background-image: url('../images/adminprod.jpg'); 
+    background-size: cover; 
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-/* Navigation bar styling */
+
 nav {
     background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    box-sizing: border-box;
 }
 
-/* Button styling */
+
 button {
     margin-top: 15px;
     margin-bottom: 15px;
-    margin-left: 50px;
+    margin-left: 25px;
     font-size: 17px;
     padding: 0.5em 2em;
     border: transparent;
@@ -29,11 +34,7 @@ button:hover {
     background: #3498db;
 }
 
-button:active {
-    transform: translate(0em, 0.2em);
-}
 
-/* Header styling */
 h3 {
     padding-right: 25px;
     padding-top: 20px;
@@ -41,7 +42,6 @@ h3 {
     font-weight: bolder;
 }
 
-/* Card styling */
 .card {
     padding-top: 30px;
     border-style: solid;
@@ -59,16 +59,25 @@ h3 {
     height: 200px;
 }
 
-/* Main container styling */
 main {
     height: 100%;
     width: 80%;
 }
 
-/* Description text styling */
+
 .des {
     color: black;
     font-size: large;
     font-weight: bolder;
     font-style: oblique;
+}
+
+.sinput{
+
+    display: inline-block;
+    height: 40px ;
+    border-radius: 8px;
+}
+.sform{
+     margin-left: 25px;
 }
