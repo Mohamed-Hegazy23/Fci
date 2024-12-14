@@ -1,3 +1,53 @@
+<?php
+include 'config.php';
+include_once 'init.php';
+
+$messages = [];
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (isset($_POST['submit'])) {
+    $name = mysqli_real_escape_string($conn, htmlspecialchars($_POST['name']));
+    $phone = mysqli_real_escape_string($conn, htmlspecialchars($_POST['phone']));
+    $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));
+    $message_content = mysqli_real_escape_string($conn, htmlspecialchars($_POST['message']));
+
+    // Determine user or guest ID
+    $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+    $guest_id = isset($_SESSION['guest_id']) ? $_SESSION['guest_id'] : null;
+
+    // Insert message into the database
+    $query = "INSERT INTO user_message (user_id, guest_id, name, email, message, phone) 
+              VALUES ('$user_id', '$guest_id', '$name', '$email', '$message_content', '$phone')";
+
+        if (mysqli_query($conn, $query)) {
+            
+            echo "<script>
+                    alert('your message sent successfully!');
+                    window.location.href = '" . $_SERVER['PHP_SELF'] . "';
+                  </script>";
+            exit();
+        }
+        
+     else {
+        $messages[] = "An error occurred while submitting your message. Please try again later.";
+    }
+}
+?>
+
+<?php
+if (!empty($messages)) {
+    foreach ($messages as $message) {
+        echo '<div class="alert alert-info" onclick="this.remove();" style="margin-top: 80px;">' . htmlspecialchars($message) . '</div>';
+    }
+}
+?>
+
+
+ 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +60,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./CSS/messagee.css">
+
+
 
 </head>
 
@@ -28,20 +81,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <li class="nav-item"><a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="shop.html"><i class="fa fa-laptop"></i>
+                        <li class="nav-item"><a class="nav-link" href="shop.php"><i class="fa fa-laptop"></i>
                                 Products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blog1.html"><i class="fa fa-rss"></i> Blog</a>
+                        <li class="nav-item"><a class="nav-link" href="blog1.php"><i class="fa fa-rss"></i> Blog</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa fa-envelope"></i>
+                        <li class="nav-item"><a class="nav-link" href="contact.php"><i class="fa fa-envelope"></i>
                                 Contact</a></li>
 
 
 
-                        <li class="nav-item"><a class="nav-link" href="user_profile.html"><i class="fas fa-user"
+                        <li class="nav-item"><a class="nav-link" href="user_profile.php"><i class="fas fa-user"
                                     title="Profile"></i></a></li>
-                        <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-bag"
+                        <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fas fa-shopping-bag"
                                     title="Cart"></i></a></li>
 
                 </div>

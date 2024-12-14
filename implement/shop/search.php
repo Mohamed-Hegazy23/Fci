@@ -1,26 +1,25 @@
-  <?php
-  include 'init.php';
-  include 'config.php'; 
-  include 'detect.php';
-  include 'add_to_cart.php';
+<?php
+include 'init.php';
+include 'config.php';
+include 'detect.php';
+include 'add_to_cart.php';
 
+if (isset($_POST['submit'])) {
+    $search = mysqli_real_escape_string($conn, $_POST['search']);
+    $query = "SELECT image, name, description, price, product_id FROM products WHERE name LIKE '%$search%'";
+    $result = mysqli_query($conn, $query);
 
+    if (!$result) {
+        die('Query failed: ' . mysqli_error($conn));
+    }
+}
 
-  if (isset($_POST['submit'])) {
-      $search = $_POST['search'];
-      $query = "SELECT * FROM `products` WHERE name LIKE '%$search%'";
-      $result = mysqli_query($conn, $query);
-
-  }
-
-
-  if (isset($message)) {
-      foreach ($message as $msg) {
-          echo '<div class="message" onclick="this.remove();">' . $msg . '</div>';
-      }
-  }
-
-  ?>
+if (isset($message)) {
+    foreach ($message as $msg) {
+        echo '<div class="message" onclick="this.remove();">' . $msg . '</div>';
+    }
+}
+?>
 
   
 
@@ -39,7 +38,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="shortcut icon" href="../shoping/assest/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./CSS/searchh.css">
-    <link rel="stylesheet" href="./CSS/message.css">
+    <link rel="stylesheet" href="./CSS/messagee.css">
 
 
 
@@ -78,53 +77,66 @@
           </div>
         </nav>
       </header>
-
       <div class="container my-5">
-        <h1 class="text-center mb-4">Search Results</h1>
-        <form action="" method="post" class="d-flex mb-4">
-          <input type="text" name="search" placeholder="Search Products" class="form-control" required>
-          <button class="btn btn-dark ms-2" name="submit">Search</button>
-        </form>
-        
-        <?php if (isset($result) && mysqli_num_rows($result) > 0): ?>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-              while ($row = mysqli_fetch_assoc($result)) {
-                echo '<tr>';
-                echo '<td><img src="./images/' . $row['image'] . '" alt="' . $row['name'] . '" width="80" height="80"></td>';
-                echo '<td>' . $row['name'] . '</td>';
-                echo '<td>' . $row['description'] . '</td>';
-                echo '<td>$' . $row['price'] . '</td>';
-                echo '<td>
-                  <form action="search.php" method="post" >
-                    <input type="hidden" name="product_id" value="' . $row['product_id'] . '">
-                    <input type="hidden" name="product_name" value="' . $row['name'] . '">
-                    <input type="hidden" name="product_price" value="' . $row['price'] . '">
-                    <input type="hidden" name="product_image" value="' . $row['image'] . '">
-                    <input type="hidden" name="product_description" value="' . $row['description'] . '">
-                    <input type="hidden" name="quantity" value="1">
-                    <button type="submit" name="add_to_cart" class="btn btn-primary">Add to Cart</button>
-                  </form>
-                </td>';
-                echo '</tr>';
-              }
-            ?>
-          </tbody>
-        </table>
-        <?php else: ?>
-          <h3 class="text-danger text-center w-100">No products found.</h3>
-        <?php endif; ?>
-      </div>
+            <h1 class="text-center mb-4">Search Results</h1>
+            <form action="" method="post" class="d-flex mb-4">
+                <input type="text" name="search" placeholder="Search Products" class="form-control" required>
+                <button class="btn btn-dark ms-2" name="submit">Search</button>
+            </form>
+            
+            <?php if (isset($result) && mysqli_num_rows($result) > 0): ?>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                   while ($row = mysqli_fetch_assoc($result)) {
+                    // Check if essential fields are present
+                    if (empty($row['name']) || empty($row['price'])) {
+                        continue; // Skip this row if name or price is missing
+                    }
+                
+                    // Use default values for optional fields
+                    $image = $row['image'] ?? 'default.jpg';
+                    $name = $row['name'];
+                    $description = $row['description'] ?? 'No description available';
+                    $price = $row['price'];
+                    $product_id = $row['product_id'] ?? 0;
+                
+                    // Render the row
+                    echo '<tr>';
+                    echo '<td><img src="./images/' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($name) . '" width="80" height="80"></td>';
+                    echo '<td>' . htmlspecialchars($name) . '</td>';
+                    echo '<td>' . htmlspecialchars($description) . '</td>';
+                    echo '<td>$' . htmlspecialchars($price) . '</td>';
+                    echo '<td>
+                        <form action="search.php" method="post">
+                            <input type="hidden" name="product_id" value="' . htmlspecialchars($product_id) . '">
+                            <input type="hidden" name="product_name" value="' . htmlspecialchars($name) . '">
+                            <input type="hidden" name="product_price" value="' . htmlspecialchars($price) . '">
+                            <input type="hidden" name="product_image" value="' . htmlspecialchars($image) . '">
+                            <input type="hidden" name="product_description" value="' . htmlspecialchars($description) . '">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" name="add_to_cart" class="btn btn-primary">Add to Cart</button>
+                        </form>
+                    </td>';
+                    echo '</tr>';
+                }
+                
+                    ?>
+                </tbody>
+            </table>
+            <?php else: ?>
+                <h3 class="text-danger text-center w-100">No products found matching your search.</h3>
+            <?php endif; ?>
+        </div>
     </div>
   </body>
 

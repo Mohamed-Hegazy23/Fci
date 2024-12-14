@@ -16,10 +16,10 @@
                 <h1 class="mb-0">Electronics Shop</h1>
                 <nav class="navbar navbar-expand-lg navbar-dark">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link font-weight-bold" href="index.html"><i class="fa fa-home"></i> Home</a></li>
-                        <li class="nav-item"><a class="nav-link font-weight-bold" href="shop.html"><i class="fa fa-laptop"></i> Products</a></li>
-                        <li class="nav-item"><a class="nav-link font-weight-bold" href="blog1.html"><i class="fa fa-rss"></i> Blog</a></li>
-                        <li class="nav-item"><a class="nav-link font-weight-bold" href="contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+                        <li class="nav-item"><a class="nav-link font-weight-bold" href="index.php"><i class="fa fa-home"></i> Home</a></li>
+                        <li class="nav-item"><a class="nav-link font-weight-bold" href="shop.php"><i class="fa fa-laptop"></i> Products</a></li>
+                        <li class="nav-item"><a class="nav-link font-weight-bold" href="blog1.php"><i class="fa fa-rss"></i> Blog</a></li>
+                        <li class="nav-item"><a class="nav-link font-weight-bold" href="contact.php"><i class="fa fa-envelope"></i> Contact</a></li>
                     </ul>
                 </nav>
             </div>

@@ -1,41 +1,69 @@
 
 body {
-    background-image: url("../images/Ch.jpeg" );
+    background-image: url("../images/you.jpg" );
     
     background-repeat: no-repeat;
     background-size: 120% 100%;
 
     font-family: 'Montserrat', sans-serif;
     background-color: #f4f7f6;
-    color: #f6b920;
+    color: #1a7a5a;
 }
 
 .navbar {
-    background-color: #303232; /* Deep Blue-Green */
-    padding: 20px;
+    font-size: 18px;
+    padding: 1rem 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding-top: 0px;
+ }
+ 
+ .navbar img {
+    height: 60px;
+    width: 60px;
+ }
+ 
+ .navbar-toggler {
+    border: none;
+ }
+ 
+ .navbar-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-.navbar .logo img {
-    height: 70px;
-    width: 70px;
-}
-
-.navbar .contain a {
-    color: #fff;
-    margin-left: 20px;
+    gap: 20px;
+ }
+ 
+ .nav-link {
+    color: #000;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
     transition: color 0.3s ease;
-}
-
-.navbar .contain a:hover {
-    color: #FFC300; /* Gold */
-}
-
+ }
+ 
+ .nav-link i {
+    margin-right: 5px;
+    color: #000;
+    transition: color 0.3s ease;
+ }
+ 
+ .nav-link:hover, 
+ .nav-link.active {
+    color: rgb(243, 11, 11);
+    border-bottom: 2px solid rgb(65, 69, 77);
+ }
+ 
+ .navbar .btn {
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+ }
+ 
+ .navbar .btn:hover {
+    background-color: rgb(209, 20, 17);
+    color: #fff;
+ }
+ 
 section {
     margin-top: 50px;
 }
@@ -59,7 +87,8 @@ section {
 }
 
 .btn {
-    background-color: #e29f0e;
+    margin-top: 15px;
+    background-color: #1e7b5f;
     color: white;
     border: none;
     border-radius: 10px;
@@ -83,7 +112,7 @@ section {
 }
 
 .footer a {
-    color: #FFC300;
+    color: #c8ba8c;
     text-decoration: none;
 }
 

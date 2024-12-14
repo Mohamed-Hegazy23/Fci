@@ -37,14 +37,9 @@ function handleGuestCart($guest_id, $product_id, $product_name, $product_price, 
         $GLOBALS['message'][] = 'Product already exists in the cart!';
     } else {
         // Insert into guest cart
-        $insert_cart = "INSERT INTO cart (guest_id, product_id, product_name, price, image, quantity) 
-                        VALUES ('$guest_id', '$product_id', '$product_name', '$product_price', '$product_image', '$quantity')";
+        $insert_cart = "INSERT INTO cart (guest_id, product_id, product_name, price, image, quantity, total_price) 
+                        VALUES ('$guest_id', '$product_id', '$product_name', '$product_price', '$product_image', '$quantity', '$product_price')";
         mysqli_query($conn, $insert_cart);
-
-        // Insert into guest_product
-        $insert_product = "INSERT INTO guest_product (guest_id, product_id, product_name, price, image, quantity) 
-                           VALUES ('$guest_id', '$product_id', '$product_name', '$product_price', '$product_image', '$quantity')";
-        mysqli_query($conn, $insert_product);
 
         $GLOBALS['message'][] = 'Product added successfully to guest cart!';
     }
@@ -62,20 +57,17 @@ function handleUserCart($user_id, $product_id, $product_name, $product_price, $p
         $GLOBALS['message'][] = 'Product already exists in the cart!';
     } else {
         // Insert into user cart
-        $insert_cart = "INSERT INTO cart (user_id, product_id, product_name, price, image, quantity) 
-                        VALUES ('$user_id', '$product_id', '$product_name', '$product_price', '$product_image', '$quantity')";
+        $insert_cart = "INSERT INTO cart (user_id, product_id, product_name, price, image, quantity, total_price) 
+                        VALUES ('$user_id', '$product_id', '$product_name', '$product_price', '$product_image', '$quantity', '$product_price')";
         mysqli_query($conn, $insert_cart);
 
-        // Insert into user_product
-        $insert_product = "INSERT INTO user_product (user_id, product_id, product_name, price, image, quantity) 
-                           VALUES ('$user_id', '$product_id', '$product_name', '$product_price', '$product_image', '$quantity')";
-        mysqli_query($conn, $insert_product);
+
+        // echo "<script>prompt('Product added successfully to user cart!')</script>";
 
         $GLOBALS['message'][] = 'Product added successfully to user cart!';
     }
 }
 ?>
-
 <!-- Display messages -->
 <?php
 if (isset($message)) {

@@ -24,7 +24,7 @@ include 'add_to_cart.php';
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="shortcut icon" href="../shoping/assest/images/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="./CSS/shoop.css">
-  <link rel="stylesheet" href="./CSS/message.css">
+  <link rel="stylesheet" href="./CSS/messagee.css">
    
   <style> 
   body{

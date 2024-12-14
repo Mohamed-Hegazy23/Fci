@@ -34,3 +34,10 @@
     transform: translateY(-20px); /* Move upwards */
     pointer-events: none; /* Disable interactions */
 }
+/* message.css */
+.alert {
+    margin: 20px auto;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
