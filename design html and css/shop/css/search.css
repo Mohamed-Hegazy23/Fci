@@ -1,0 +1,16 @@
+body{
+    background-image: url(../images/BG.jpg);
+    background-size: cover; 
+        margin: 0%;
+    padding: 0;
+}
+
+form{
+
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 450px;
+}
+form input{
+    padding: 5px;
+}

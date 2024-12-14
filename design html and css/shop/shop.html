@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E_Business</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,91 +15,101 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <link rel="shortcut icon" href="../shoping/assest/images/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="/assest/css/shoop.css">
+  <link rel="stylesheet" href="./CSS/shoop.css">
 </head>
 
 <body>
   <!-- nav bar -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <div class="container">
-        <div class="main-nav">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse nav-button" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="shop.html">Shop</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="blog1.html">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="search.html">Search</a>
-              </li>
-              <li class="nav-item">
-                <a href="user_profile.html"><i class="fas fa-user" title="Profile"></i></a>
-              </li>
-              <li class="nav-item">
-                <a href="cart.html"><i class="fas fa-shopping-bag" title="Cart"></i></a>
-              </li>
-            </ul>
-          </div>
+      <div class="container main-nav" style="padding-bottom: 0px;">
+        <img src="./images/logo.png" alt="Logo" height="80px" width="80px">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html"><i class="fa fa-laptop"></i> Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog1.html"><i class="fa fa-rss"></i> Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="search.html"><i class="fa fa-search"></i> Search</a></li>
+
+
+            <li class="nav-item"><a class="nav-link" href="user_profile.html"><i class="fas fa-user"
+                  title="Profile"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-bag"
+                  title="Cart"></i></a></li>
+
         </div>
       </div>
     </nav>
   </header>
 
+
   <!-- Add Product Forms -->
-  <div class="container d-flex justify-content-end" style="margin-top: 150px;">
+
+  <div class="container d-flex flex-column justify-content-end"style="margin-top: 0px;height: 100vh;padding-bottom: 100px;">  
+      <h1 class="heading">latest products</h1>
+
     <!-- First Form -->
-    <div class="card p-3 shadow-lg m-3">
-      <form action="upload_product.php" method="POST">
-        <div class="mb-3">
-          <label for="productName1" class="form-label">Product Name</label>
-        </div>
-        <div class="text-center">
-          <img src="./assest/images/Camera.jpg.jpg" alt="Product Image" class="img-fluid mb-3">
-          <h3 class="text-center mb-3">Price 80$</h3>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Add Product</button>
-      </form>
-    </div>
-    
-    <div class="card p-3 shadow-lg m-3">
-      <form action="upload_product.php" method="POST">
-        <div class="mb-3">
-          <label for="productName2" class="form-label">Product Name</label>
-        </div>
-        <div class="text-center">
-          <img src="./assest/images/iphone13.png" alt="Product Image" class="img-fluid mb-3">
-          <h3 class="text-center mb-3">Price 150$</h3>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Add Product</button>
-      </form>
-    </div>
-    
-    <div class="card p-3 shadow-lg m-3">
-      <form action="upload_product.php" method="POST">
-        <div class="mb-3">
-          <label for="productName3" class="form-label">Product Name</label>
-        </div>
-        <div class="text-center">
-          <img src="./assest/images/images.jpg" alt="Product Image" class="img-fluid mb-3">
-          <h3 class="text-center mb-3">Price 50$</h3>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Add Product</button>
-      </form>
+    <div class="row justify-content-center">
+
+      <div class="card p-3 shadow-lg m-3">
+        <form action="" method="POST">
+          <div class="mb-3">
+            <label for="productName1" class="form-label">Product Name</label>
+          </div>
+          <div class="text-center">
+            <img src="./images/Camera.png" alt="Product Image" class="img-fluid mb-3">
+            <h3 class="text-center mb-3">Price 80$</h3>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Add Product</button>
+        </form>
+      </div>
+
+      <div class="card p-3 shadow-lg m-3">
+        <form action="upload_product.php" method="POST">
+          <div class="mb-3">
+            <label for="productName2" class="form-label">Product Name</label>
+          </div>
+          <div class="text-center">
+            <img src="./images/iphone13.png" alt="Product Image" class="img-fluid mb-3">
+            <h3 class="text-center mb-3">Price 150$</h3>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Add Product</button>
+        </form>
+      </div>
+
+      <div class="card p-3 shadow-lg m-3">
+        <form action="upload_product.php" method="POST">
+          <div class="mb-3">
+            <label for="productName3" class="form-label">Product Name</label>
+          </div>
+          <div class="text-center">
+            <img src="./images/images.jpg" alt="Product Image" class="img-fluid mb-3">
+            <h3 class="text-center mb-3">Price 50$</h3>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Add Product</button>
+        </form>
+      </div>
     </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-p33wmE4sI/mz79e7qQ8b1dKOHGm3ZKrj5Iwhh9FZ+9MWrkn5l7v3znNxhk3Ci9GX" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-p33wmE4sI/mz79e7qQ8b1dKOHGm3ZKrj5Iwhh9FZ+9MWrkn5l7v3znNxhk3Ci9GX"
+      crossorigin="anonymous"></script>
+
+       <!-- Footer Section -->
+    <footer>
+    
+        <p>&copy; 2024 El-Basha Store. All rights reserved.</p>
+        <p>Address: Shiben El Kome , El Glaa Street</p>
+        <p>Email: El-Basha.Store@gmail.com | Phone: +201097534045</p>
+  </footer>
+  
 </body>
 
 </html>
