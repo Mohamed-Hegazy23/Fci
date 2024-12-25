@@ -3,6 +3,7 @@ session_start();
 include 'init.php';
 include 'config.php'; 
 include 'detect.php';
+// include 'logout.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +49,17 @@ include 'detect.php';
                         <li class="nav-item"><a class="nav-link" href="contact.php"><i class="fa fa-envelope"></i> Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="user_profile.php"><i class="fas fa-user" title="Profile"></i></a></li>
                         <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fas fa-shopping-bag" title="Cart"></i></a></li>
-                        <li class="nav-item"><a href="login.php" class="btn btn-outline-dark">Login</a></li>
-                        <li class="nav-item"><a href="register.php" class="btn btn-outline-dark ms-2">Sign Up</a></li>
+                        <li class="nav-item">
+    <?php if (isset($_SESSION['user_id'])) : ?>
+        <!-- If the user is logged in, show Logout -->
+        <a href="logout.php" class="btn btn-outline-dark">Logout</a>
+    <?php else : ?>
+        <!-- If the user is NOT logged in, show Login and Sign Up -->
+        <a href="login.php" class="btn btn-outline-dark">Login</a>
+        <a href="register.php" class="btn btn-outline-dark ms-2">Sign Up</a>
+    <?php endif; ?>
+</li>
+
                     </ul>
                 </div>
             </div>
@@ -83,5 +93,16 @@ include 'detect.php';
       <p>&copy; 2024 Electronics Shop. All rights reserved.</p>
       <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
   </footer>
+ 
+<script>
+// Send request to delete guest data only when the tab or browser window is closed
+window.addEventListener("beforeunload", function (event) {
+    if (!event.persisted) { // Check if the page is being closed (not cached or navigated)
+        navigator.sendBeacon('guest_cleanup.php'); // Calls PHP script to delete guest
+    }
+});
+</script>
+
+
 </body>
 </html>

@@ -33,9 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (mysqli_num_rows($result_email) > 0) {
                 $messages[] = "Email already exists. Please use a different email.";
             } else {
-                // Hash the password securely
-               
-
+                 
                 // Insert user into the database
                 $query = "INSERT INTO users (username, full_name, email, address, phone, password) 
                           VALUES ('$userName', '$fullName', '$email', '$address', '$phone', '$password')";

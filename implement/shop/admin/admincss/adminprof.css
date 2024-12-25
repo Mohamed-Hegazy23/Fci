@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/9.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box; 
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 20px;
+    max-width: 500px;
+    background-color: black;
+    border-style: none;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box; 
+    word-wrap: break-word; 
+    overflow: hidden; 
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; 
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin: 5px 0;
+    font-size: 25px;
+    color: white;
+    word-wrap: break-word; /* Prevents text overflow */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    margin: 5px 80px;
+    background-color: white;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: tomato;
+    color: white;
+}
+
+/* Add a responsive media query for smaller screens */
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%; /* Limit width to fit smaller screens */
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .card-text {
+        font-size: 20px; /* Adjust text size for smaller screens */
+    }
+
+    .btn {
+        font-size: 18px; /* Smaller buttons on smaller screens */
+    }
+}
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.Home {
+    /* ... other styles ... */
+    margin: 0; /* Remove top margin */
+    padding: 10px 20px; /* Add padding for better appearance */
+    border-radius: 5px;
+    font-size: 25px;
+    background-color:black;
+    margin: 15px;
+    border-style: none;
+
+    
+
+
+}
+.Home a{
+    text-decoration: none;
+    color: white;
+}
+
+.Home:hover{
+    background-color: tomato;
+}

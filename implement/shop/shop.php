@@ -4,11 +4,30 @@ include 'config.php';
 include 'detect.php';
 include 'add_to_cart.php';
 
+// Search functionality
+$search = '';
+if (isset($_POST['search']) && !empty($_POST['search'])) {
+  $search = mysqli_real_escape_string($conn, $_POST['search']);
+  $query = "SELECT image, name, description, price, product_id FROM products WHERE name LIKE '%$search%'";
+  $result = mysqli_query($conn, $query);
+  if (!$result) {
+      die('Query failed: ' . mysqli_error($conn));
+  }
+} else {
+  $query = "SELECT image, name, description, price, product_id FROM products";
+  $result = mysqli_query($conn, $query);
+  if (!$result) {
+      die('Query failed: ' . mysqli_error($conn));
+  }
+}
 ?>
-
-
-
-
+<?php
+// if (!empty($message)) {
+//     foreach ($message as $msg) {
+//         echo '<div class="message" onclick="this.remove();" style="margin-top: 80px;">' . htmlspecialchars($msg) . '</div>';
+//     }
+// }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +46,12 @@ include 'add_to_cart.php';
   <link rel="stylesheet" href="./CSS/messagee.css">
    
   <style> 
-  body{
+    body{
         background-image: url(./images/you.jpg);
-  }
+    }
   </style>
 </head>
-<body >
+<body>
 
   <!-- nav bar -->
   <header>
@@ -49,7 +68,11 @@ include 'add_to_cart.php';
             <li class="nav-item"><a class="nav-link" href="shop.php"><i class="fa fa-laptop"></i> Products</a></li>
             <li class="nav-item"><a class="nav-link" href="blog1.php"><i class="fa fa-rss"></i> Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.php"><i class="fa fa-envelope"></i> Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="search.php"><i class="fa fa-search"></i> Search</a></li>
+            <form action="" method="post" class="d-flex mb">
+                <input type="text" name="search" placeholder="Search Products" class="form-control" required>
+                <button class="btn btn-dark ms-2" name="submit">Search</button>
+            </form>
+            
             <li class="nav-item"><a class="nav-link" href="user_profile.php"><i class="fas fa-user" title="Profile"></i></a></li>
             <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fas fa-shopping-bag" title="Cart"></i></a></li>
           </ul>
@@ -64,31 +87,31 @@ include 'add_to_cart.php';
 
       <div class="row justify-content-center">
         <?php
-            // Fetch products from the database using MySQLi
-            $select_product = mysqli_query($conn, "SELECT * FROM `products`");
-            if (mysqli_num_rows($select_product) > 0) {
-                while ($fetch_product = mysqli_fetch_assoc($select_product)) {
-            ?>
+        if (mysqli_num_rows($result) > 0) {
+            while ($fetch_product = mysqli_fetch_assoc($result)) {
+        ?>
         <div class="card p-3 shadow-lg m-3 text-center position-relative">
           <form method="post" action="">
-            <div class="price"><?php echo $fetch_product['price']; ?>$</div>
+            <div class="price"><?php echo htmlspecialchars($fetch_product['price']); ?>$</div>
             <div class="img">
-              <img src="./images/<?php echo $fetch_product['image']; ?>" alt="Product Image">
+              <img src="./images/<?php echo htmlspecialchars($fetch_product['image']); ?>" alt="Product Image">
             </div>
-            <h3><?php echo $fetch_product['name']; ?></h3>
-            <p class="description mb-3"><?php echo $fetch_product['description']; ?></p>
-            <input type="hidden" name="product_id" value="<?php echo $fetch_product['product_id']; ?>">
-            <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
-            <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
-            <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
+            <h3><?php echo htmlspecialchars($fetch_product['name']); ?></h3>
+            <p class="description mb-3"><?php echo htmlspecialchars($fetch_product['description']); ?></p>
+            <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($fetch_product['product_id']); ?>">
+            <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($fetch_product['name']); ?>">
+            <input type="hidden" name="product_price" value="<?php echo htmlspecialchars($fetch_product['price']); ?>">
+            <input type="hidden" name="product_image" value="<?php echo htmlspecialchars($fetch_product['image']); ?>">
             <input type="hidden" name="quantity" value="1" min="1">
             <button type="submit" name="add_to_cart" class="btn btn-primary w-100">Add to Cart</button>
           </form>
         </div>
         <?php
-                }
             }
-            ?>
+        } else {
+          echo "<script>alert('No products found matching your search');</script>";
+        }
+        ?>
       </div>
     </div>
   </div>

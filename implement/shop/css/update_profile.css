@@ -1,0 +1,126 @@
+body {
+   font-family: 'Arial', sans-serif;
+   background-color: #f8f9fa;
+   margin-top: 100px; /* Ensure space for fixed navbar */
+}
+
+.main-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+}
+
+.form-container {
+   width: 100%;
+   max-width: 500px;
+   padding: 30px;
+   background-color: #fff;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+   margin-top: 20px; /* Adds space between card and the top */
+}
+
+.form-container h2 {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.input-group {
+   margin-bottom: 15px;
+}
+
+.input-group label {
+   font-weight: bold;
+}
+
+.input-group input {
+   width: 100%;
+   padding: 12px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   font-size: 16px;
+}
+
+.update-btn {
+   width: 100%;
+   padding: 12px;
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   font-size: 16px;
+   cursor: pointer;
+}
+
+.update-btn:hover {
+   background-color: #0056b3;
+}
+
+.navbar {
+   font-size: 18px;
+   padding: 1rem 0;
+   background-color: #ffffff;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   z-index: 1000;
+   padding-top: 0px;
+}
+
+.navbar img {
+   height: 60px;
+   width: 60px;
+}
+
+.navbar-toggler {
+   border: none;
+}
+
+.navbar-nav {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.nav-link {
+   color: #000;
+   text-decoration: none;
+   transition: color 0.3s ease;
+}
+
+.nav-link i {
+   margin-right: 5px;
+   color: #000;
+   transition: color 0.3s ease;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+   color: rgb(243, 11, 11);
+   border-bottom: 2px solid rgb(65, 69, 77);
+}
+
+.navbar .btn {
+   font-size: 16px;
+   padding: 5px 15px;
+   border-radius: 5px;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .btn:hover {
+   background-color: rgb(209, 20, 17);
+   color: #fff;
+}
+
+footer {
+   background-color: #2c3e50;
+   color: white;
+   text-align: center;
+   padding: 20px;
+   margin-top: 40px;
+}
+
+footer a {
+   color: white;
+   text-decoration: none;
+}
+

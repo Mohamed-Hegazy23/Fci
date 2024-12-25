@@ -43,6 +43,7 @@ if (isset($_POST['submit'])) {
         }
 
         // Redirect to the homepage or dashboard after login
+        header('location: index.php');
         $message[]='login done';
         exit();
     } else {
@@ -52,7 +53,7 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
-
+    
 <?php
 if(isset($message)){
    foreach($message as $message){

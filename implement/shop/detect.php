@@ -13,12 +13,23 @@ if (!function_exists('createGuestSession')) {
     function createGuestSession()
     {
         global $conn;
-        if (!isset($_SESSION['guest_id'])) {
-            $session_id = session_id();
+
+        // Check if the session ID already exists for a guest
+        $session_id = session_id();
+        $check_guest_query = "SELECT * FROM guests WHERE session_id = '$session_id'";
+        $result = mysqli_query($conn, $check_guest_query);
+
+        // If session ID doesn't exist, insert a new guest record
+        if (mysqli_num_rows($result) == 0) {
             $guest_query = "INSERT INTO guests (session_id) VALUES ('$session_id')";
             mysqli_query($conn, $guest_query);
             $_SESSION['guest_id'] = mysqli_insert_id($conn);
+        } else {
+            // Session ID already exists, retrieve the guest ID
+            $guest = mysqli_fetch_assoc($result);
+            $_SESSION['guest_id'] = $guest['guest_id'];
         }
+
         $_SESSION['is_guest'] = true;
         $_SESSION['active_id'] = $_SESSION['guest_id'];
     }
@@ -45,4 +56,8 @@ if (isset($_SESSION['user_id'])) {
     createGuestSession();
 }
 
+
+
+
 ?>
+

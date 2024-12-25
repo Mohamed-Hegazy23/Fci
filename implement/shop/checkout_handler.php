@@ -1,26 +1,26 @@
-<?php
-include 'init.php'; // Session management
-include 'config.php'; // Database connection
-include 'detect.php'; // User/guest detection logic
+    <?php
+    include 'init.php'; // Session management
+    include 'config.php'; // Database connection
+    include 'detect.php'; // User/guest detection logic
 
-// Get the active ID and user status
-$active_id = $_SESSION['active_id'];
-$is_guest = $_SESSION['is_guest'];
+    // Get the active ID and user status
+    $active_id = $_SESSION['active_id'];
+    $is_guest = $_SESSION['is_guest'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Handle guest or user products
-    if ($is_guest) {
-        copyGuestProducts($active_id);
-    } else {
-        copyUserProducts($active_id);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Handle guest or user products
+        if ($is_guest) {
+            copyGuestProducts($active_id);
+        } else {
+            copyUserProducts($active_id);
+        }
+
+        // Redirect to checkout form
+        header('Location: checkout.php');
+        exit();
     }
 
-    // Redirect to checkout form
-    header('Location: checkout.php');
-    exit();
-}
-
-// Function to copy products for guests
+  // Function to copy products for guests
 function copyGuestProducts($guest_id)
 {
     global $conn;
@@ -52,6 +52,12 @@ function copyGuestProducts($guest_id)
                                VALUES ('$guest_id', '$product_id', '$product_name', '$price', '$image', '$quantity')";
             mysqli_query($conn, $insert_product);
         }
+
+        // Decrease the quantity in the products table
+        $decrease_quantity = "UPDATE products 
+                              SET amount = amount - $quantity 
+                              WHERE product_id = '$product_id' AND amount >= $quantity";
+        mysqli_query($conn, $decrease_quantity);
     }
 }
 
@@ -87,6 +93,13 @@ function copyUserProducts($user_id)
                                VALUES ('$user_id', '$product_id', '$product_name', '$price', '$image', '$quantity')";
             mysqli_query($conn, $insert_product);
         }
+
+        // Decrease the quantity in the products table
+        $decrease_quantity = "UPDATE products 
+                              SET amount = amount - $quantity 
+                              WHERE product_id = '$product_id' AND amount >= $quantity";
+        mysqli_query($conn, $decrease_quantity);
     }
 }
-?>
+
+    ?>

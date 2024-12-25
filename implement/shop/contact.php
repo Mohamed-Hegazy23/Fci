@@ -1,50 +1,59 @@
 <?php
-include 'config.php';
-include_once 'init.php';
+include 'config.php';  // Database connection
+include_once 'init.php';  // Start session and other necessary initializations
 
+// Initialize messages
 $messages = [];
 
+// Check if session exists
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 if (isset($_POST['submit'])) {
+    // Collect and sanitize input
     $name = mysqli_real_escape_string($conn, htmlspecialchars($_POST['name']));
     $phone = mysqli_real_escape_string($conn, htmlspecialchars($_POST['phone']));
     $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));
-    $message_content = mysqli_real_escape_string($conn, htmlspecialchars($_POST['message']));
+    $review_content = mysqli_real_escape_string($conn, htmlspecialchars($_POST['message']));
 
-    // Determine user or guest ID
+    // Determine if it's a user or guest submitting the review
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
     $guest_id = isset($_SESSION['guest_id']) ? $_SESSION['guest_id'] : null;
+    $username = isset($_SESSION['username']) ? $_SESSION['username'] : $name;  // For guest, use the entered name
+    $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : $phone;  // For guest, use the entered phone
+    $email = isset($_SESSION['email']) ? $_SESSION['email'] : $email;  // For guest, use the entered email
 
-    // Insert message into the database
-    $query = "INSERT INTO user_message (user_id, guest_id, name, email, message, phone) 
-              VALUES ('$user_id', '$guest_id', '$name', '$email', '$message_content', '$phone')";
+    // Insert review into the database
+    if ($user_id) {
+        $query = "INSERT INTO review (user_id, username, phone, email, review) 
+                  VALUES ('$user_id', '$username', '$phone', '$email', '$review_content')";
+    } else {
+        $query = "INSERT INTO review (guest_id, username, phone, email, review) 
+                  VALUES ('$guest_id', '$username', '$phone', '$email', '$review_content')";
+    }
 
-        if (mysqli_query($conn, $query)) {
-            
-            echo "<script>
-                    alert('your message sent successfully!');
-                    window.location.href = '" . $_SERVER['PHP_SELF'] . "';
-                  </script>";
-            exit();
-        }
-        
-     else {
-        $messages[] = "An error occurred while submitting your message. Please try again later.";
+    // Execute the query and check if successful
+    if (mysqli_query($conn, $query)) {
+        echo "<script>
+                alert('Your review has been submitted successfully!');
+                window.location.href = '" . $_SERVER['PHP_SELF'] . "';
+              </script>";
+        exit();
+    } else {
+        $messages[] = "An error occurred while submitting your review. Please try again later.";
     }
 }
 ?>
 
 <?php
+// Display messages
 if (!empty($messages)) {
     foreach ($messages as $message) {
         echo '<div class="alert alert-info" onclick="this.remove();" style="margin-top: 80px;">' . htmlspecialchars($message) . '</div>';
     }
 }
 ?>
-
 
  
 

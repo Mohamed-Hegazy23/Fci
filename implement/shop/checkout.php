@@ -2,16 +2,12 @@
 session_start();
 include 'init.php'; // Session management
 include 'config.php'; // Database connection
-include 'detect.php'; // User/guest detection logic
 
 $message = []; // Initialize the message array
 
-// Get the active ID and user status
-$active_id = isset($_SESSION['active_id']) ? $_SESSION['active_id'] : null;
-$is_guest = isset($_SESSION['is_guest']) ? $_SESSION['is_guest'] : false;
-
-echo "Active ID: " . (isset($active_id) ? $active_id : "No active user.") . "<br>"; // Display active_id when the checkout page is opened
-
+// Get the active session IDs
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$guest_id = isset($_SESSION['guest_id']) ? $_SESSION['guest_id'] : null;
 
 if (isset($_POST['submit'])) {
     // Sanitize and collect input data
@@ -23,7 +19,7 @@ if (isset($_POST['submit'])) {
     $confirm_visa_card = mysqli_real_escape_string($conn, md5($_POST['cviacard']));
 
     // Validate Visa card number format (Visa cards start with 4 and are between 13 and 19 digits)
-    if (!preg_match('/^4[0-9]{5,18}$/', $_POST['viacard'])) {
+    if (!preg_match('/^4[0-9]{12}(?:[0-9]{3})?(?:[0-9]{3})?$/', $_POST['viacard'])) {
         $message[] = 'Invalid Visa card number! It must start with 4 and contain 13 to 19 digits.';
     }
 
@@ -32,41 +28,33 @@ if (isset($_POST['submit'])) {
         $message[] = 'Visa card numbers do not match! Please try again.';
     }
 
-    // Check if user session is set correctly
+    // Ensure at least one session ID is set
     if (empty($message)) {
-        if ($active_id !== null) {
+        if ($user_id !== null) {
             // User is logged in
-            $user_id = $active_id;
-            $guest_id = NULL;
-        } elseif ($is_guest) {
-            // User is a guest
-            $user_id = NULL;
-            $guest_id = $_SESSION['guest_id'];  // Use guest_id for guest users
-        } else {
-            $message[] = 'User session is not set! Please log in or continue as a guest.';
+            $guest_id = null; // Reset guest ID for logged-in users
+        } elseif ($guest_id === null) {
+            $message[] = 'Session error: Please log in or continue as a guest.';
         }
     }
 
-    // Insert data into checkout_data table
+    // Insert data into `checkout_data` table
     if (empty($message)) {
         $query = "INSERT INTO checkout_data (name, phone, address, email, visa_card, user_id, guest_id) 
-                  VALUES ('$name', '$phone', '$address', '$email', '$visa_card', '$user_id', '$guest_id')";
+                  VALUES ('$name', '$phone', '$address', '$email', '$visa_card', " . 
+                  ($user_id !== null ? "'$user_id'" : "NULL") . ", " . 
+                  ($guest_id !== null ? "'$guest_id'" : "NULL") . ")";
 
         if (mysqli_query($conn, $query)) {
-            // Clear the cart in the database for both user and guest
-            if ($user_id !== NULL) {
-                // Clear cart for logged-in user
-                $clear_cart_query = "DELETE FROM cart WHERE user_id = '$user_id'";
-            } elseif ($guest_id !== NULL) {
-                // Clear cart for guest
-                $clear_cart_query = "DELETE FROM cart WHERE guest_id = '$guest_id'";
-            }
+            // Clear the cart in the database
+            $clear_cart_query = $user_id !== null 
+                ? "DELETE FROM cart WHERE user_id = '$user_id'" 
+                : "DELETE FROM cart WHERE guest_id = '$guest_id'";
 
-            // Execute the cart deletion query
             if (mysqli_query($conn, $clear_cart_query)) {
                 $message[] = 'Thank you for your trust! Your order will be delivered soon, and your cart has been cleared.';
             } else {
-                $message[] = 'Error clearing the cart: ' . mysqli_error($conn);  // Added debugging
+                $message[] = 'Error clearing the cart: ' . mysqli_error($conn);
             }
         } else {
             // Handle database error
@@ -78,11 +66,10 @@ if (isset($_POST['submit'])) {
 // Display messages
 if (!empty($message)) {
     foreach ($message as $msg) {
-        echo '<div class="message" onclick="this.remove();" style="margin-top: 80px">'.$msg.'</div>';
+        echo '<div class="message" onclick="this.remove();" style="margin-top: 80px">' . htmlspecialchars($msg) . '</div>';
     }
 }
 ?>
-
 
 
 
@@ -124,7 +111,6 @@ if (!empty($message)) {
             <li class="nav-item"><a class="nav-link" href="shop.php"><i class="fa fa-laptop"></i> Products</a></li>
             <li class="nav-item"><a class="nav-link" href="blog1.php"><i class="fa fa-rss"></i> Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.php"><i class="fa fa-envelope"></i> Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="search.php"><i class="fa fa-search"></i> Search</a></li>
             <li class="nav-item"><a class="nav-link" href="user_profile.php"><i class="fas fa-user" title="Profile"></i></a></li>
             <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fas fa-shopping-bag dark" title="Cart"></i></a></li>
           </ul>
@@ -194,7 +180,8 @@ if (!empty($message)) {
     <p>Email: Elbasha@gmail.com | Phone: +201067568547</p>
 </div>
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap JS -->.
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
